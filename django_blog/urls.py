@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('blog.urls', namespace='blog')),
     path('', include('comments.urls', namespace='comments')),
     path('all/rss/', AllPostsRssFeed(), name='rss'),
+    path('captcha',include('captcha.urls'))
 ]

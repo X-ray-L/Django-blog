@@ -20,9 +20,9 @@ if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_blog.settings.local")
     django.setup()
 
-    from blog.models import Category, Post, Tag
+    from blog.models import Category, Post, Tag,UserInfo
     from comments.models import Comment
-    from django.contrib.auth.models import User
+    # from django.contrib.auth.models import User
 
     # 取消实时索引生成，因为本地运行 fake 脚本时可能并未启动 Elasticsearch 服务。
     # apps.get_app_config("haystack").signal_processor.teardown()
@@ -32,10 +32,10 @@ if __name__ == "__main__":
     Category.objects.all().delete()
     Tag.objects.all().delete()
     Comment.objects.all().delete()
-    User.objects.all().delete()
+    UserInfo.objects.all().delete()
 
     print("create a blog user")
-    user = User.objects.create_superuser("admin", "admin@hellogithub.com", "admin")
+    user = UserInfo.objects.create_superuser("X-ray", "2476739915@qq.com", "123456")
 
     category_list = ["Python学习笔记", "开源项目", "工具资源", "程序员生活感悟", "test category"]
     tag_list = [
